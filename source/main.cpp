@@ -1,9 +1,12 @@
 #include <iostream>
+#include <vector>
 #include <mpi.h>
+
+#include "process.hpp"
 
 using namespace std;
 
-void run(const int*, const int *);
+void run(const int*, const int*);
 
 int main(int argc, char **argv) {
     int rank, size;
@@ -21,10 +24,13 @@ int main(int argc, char **argv) {
 }
 
 void run(const int* rank, const int* size) {
-    if(*rank == 0) {
-        cout << "i'm master";
-    } else {
-        cout << "i'm slave";
+    if(*rank == MMPI::Globals::MASTER_RANK) {
+        Master master(*rank);
+        master.ReceiveIntBy(1);
+    }
+    else {
+        Slave slave(*rank);
+        slave.SendToMaster(555);
     }
     cout << endl;
 }
