@@ -80,7 +80,7 @@ void Slave::ReceiveFromMaster() {
     }
 }
 
-long double Slave::celsiusToFarenheit(long double c) {
+long double Slave::CelsiusToFarenheit(long double c) {
     return (9 * c + 160) / 5;
 }
 
@@ -93,7 +93,7 @@ void Slave::MakeProcess(const string path) {
     
     long double st;
     while(cin >> st) {
-        cout << this->celsiusToFarenheit(st) << endl;
+        cout << this->CelsiusToFarenheit(st) << endl;
     }
     cin.close();
     

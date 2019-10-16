@@ -44,7 +44,7 @@ public:
     void SendToMaster(int);
     void ReceiveFromMaster();
     void MakeProcess(const string path);
-    long double celsiusToFarenheit(long double c);
+    long double CelsiusToFarenheit(long double c);
 private:
     const uint master_rank = MMPI::Globals::MASTER_RANK;
     
