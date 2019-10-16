@@ -39,6 +39,8 @@ def createIndexFile(arr):
     f = open('./indexfile.txt', 'w')
     for l in arr:
         f.write(l+'\n')
-        
-convertAll('orig/')
+try:        
+    convertAll('orig/')
+except:
+    pass
 createIndexFile(indexfile('./'))

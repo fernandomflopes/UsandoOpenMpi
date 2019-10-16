@@ -25,11 +25,13 @@ int main(int argc, char **argv) {
 
 void run(const int* rank, const int* size) {
     if(*rank == MMPI::Globals::MASTER_RANK) {
-        Master master(*rank);
-        
+        Master master(*rank, *size);
+        master.ReadIndexFile("files/indexfile.txt");
+        master.SlaveProcess();
     }
     else {
         Slave slave(*rank);
+        slave.ReceiveFromMaster();
     }
     cout << endl;
 }

@@ -1334,7 +1334,6 @@ pres20170314.txt
 tdew20080210.txt
 pres20070418.txt
 wind20080324.txt
-index.txt
 tprc20110719.txt
 wind20080206.txt
 temp20121128.txt
@@ -1843,6 +1842,7 @@ wind20081122.txt
 tprc20121004.txt
 pres20121106.txt
 temp20111120.txt
+indexfile.txt
 wind20071231.txt
 tprc_E520110520.txt
 tprc20080925.txt
