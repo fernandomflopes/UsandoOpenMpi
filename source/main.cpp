@@ -31,7 +31,7 @@ void run(const int* rank, const int* size) {
     }
     else {
         Slave slave(*rank);
-        slave.ReceiveFromMaster();
+   	slave.ReceiveFromMaster();
     }
     cout << endl;
 }

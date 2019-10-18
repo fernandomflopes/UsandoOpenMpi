@@ -1,10 +1,11 @@
-#ifndef PROCESS_HPP
-#define PROCESS_HPP
+#ifndef _PROCESS_HPP_
+#define _PROCESS_HPP_
 
 #include <iostream>
 #include <fstream>
 #include <queue>
 #include <cstring>
+
 #include <mpi.h>
 
 using namespace std;
@@ -38,16 +39,31 @@ private:
     queue<string> process_queue;
 };
 
+template <typename T>
+class Calculator {
+public:
+	virtual T calculate(T value) = 0;
+};
+
+class CelsiusToFirenheit: public Calculator<double> {
+public:
+	double calculate(double value);
+};
+
 class Slave: public Process {
 public:
-    Slave(const uint rank);
+
+	Slave(const uint rank);
+
     void SendToMaster(int);
+
     void ReceiveFromMaster();
+    
     void MakeProcess(const string path);
+    
     long double CelsiusToFarenheit(long double c);
 private:
     const uint master_rank = MMPI::Globals::MASTER_RANK;
-    
 };
 
 #endif

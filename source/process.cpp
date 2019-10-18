@@ -47,9 +47,15 @@ void Master::SlaveProcess() {
     }
 }
 
-Slave::Slave(const uint rank):Process(rank) {
+double CelsiusToFirenheit::calculate(double value) {
+	return 10.1;	
+}
+
+Slave::Slave(const uint rank): Process(rank)
+{
     cout << "i`m slave " << "id: " << rank; 
 }
+
 
 void Slave::SendToMaster(int data) {
     MPI_Send(&data, 
@@ -85,17 +91,18 @@ long double Slave::CelsiusToFarenheit(long double c) {
 }
 
 void Slave::MakeProcess(const string path) {
-    cout << "processando" << endl;
+    cout << "processando " << path << endl;
     
     string cinpath = MMPI::Globals::DIR_FILES_PATH + path;
-    
+    string outpath = MMPI::Globals::DIR_OUT_FILES_PATH + path;
+
     ifstream cin(cinpath);
-    
+    ofstream  mfile(outpath);
+
     long double st;
     while(cin >> st) {
-        cout << this->CelsiusToFarenheit(st) << endl;
+        mfile << this->CelsiusToFarenheit(st);
+        mfile << "\n";
     }
     cin.close();
-    
-
 }
