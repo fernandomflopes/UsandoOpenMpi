@@ -48,11 +48,18 @@ public:
 
     void ReceiveFromMaster();
     
-    void MakeProcess(const string path);
+    virtual void MakeProcess(const string path) = 0;
     
-    long double CelsiusToFarenheit(long double c);
+    //long double CelsiusToFarenheit(long double c);
 private:
     const uint master_rank = MMPI::Globals::MASTER_RANK;
+};
+
+class SlaveCelsiusCalculator: public Slave {
+public:
+	SlaveCelsiusCalculator(const int rank);
+	virtual void MakeProcess(const string path);	
+    long double CelsiusToFarenheit(long double c);
 };
 
 #endif

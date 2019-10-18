@@ -83,11 +83,15 @@ void Slave::ReceiveFromMaster() {
     }
 }
 
-long double Slave::CelsiusToFarenheit(long double c) {
+SlaveCelsiusCalculator::SlaveCelsiusCalculator(const int rank):Slave(rank){}
+
+long double SlaveCelsiusCalculator
+		::CelsiusToFarenheit(long double c) 
+{
     return (9 * c + 160) / 5;
 }
 
-void Slave::MakeProcess(const string path) {
+void SlaveCelsiusCalculator::MakeProcess(const string path) {
     cout << "processando " << path << endl;
     
     string cinpath = MMPI::Globals::DIR_FILES_PATH + path;

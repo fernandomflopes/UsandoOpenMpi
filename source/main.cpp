@@ -30,8 +30,8 @@ void run(const int* rank, const int* size) {
         master.SlaveProcess();
     }
     else {
-        Slave slave(*rank);
-   	slave.ReceiveFromMaster();
+        SlaveCelsiusCalculator slave(*rank);
+   		slave.ReceiveFromMaster();
     }
     cout << endl;
 }
