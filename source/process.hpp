@@ -39,17 +39,6 @@ private:
     queue<string> process_queue;
 };
 
-template <typename T>
-class Calculator {
-public:
-	virtual T calculate(T value) = 0;
-};
-
-class CelsiusToFirenheit: public Calculator<double> {
-public:
-	double calculate(double value);
-};
-
 class Slave: public Process {
 public:
 

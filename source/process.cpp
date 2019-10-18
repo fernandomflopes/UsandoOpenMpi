@@ -47,9 +47,6 @@ void Master::SlaveProcess() {
     }
 }
 
-double CelsiusToFirenheit::calculate(double value) {
-	return 10.1;	
-}
 
 Slave::Slave(const uint rank): Process(rank)
 {
