@@ -5,3 +5,4 @@
 >>> Instalando no UBUNTU 18: ``` sudo apt-get install libopenmpi-dev openmpi-bin openmpi-doc```
 >>> Instalando no Macos: ``` brew install open-mpi ```
 
+>> OBS PARA USUARIOS LINUX: https://github.com/fernandomflopes/UsandoOpenMpi/blob/f35b7c9277825d0e4c7428f104907aae3410efbe/run.sh#L6 mude o parametro -np de acordo com a quantia de nucleos a serem utilizados;
